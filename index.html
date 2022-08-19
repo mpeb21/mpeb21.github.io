@@ -12,6 +12,7 @@ Section: ZDD -->
     href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap"
     rel="stylesheet"
   />
+ 
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -21,10 +22,11 @@ Section: ZDD -->
     <link rel="stylesheet" href="johndoe.css" />
     <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css" />
+
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
   </head>
   <body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
-    <a
-      href="components.html"
+      <a
       class="btn btn-primary btn-component"
       data-spy="affix"
       data-offset-top="200"
@@ -78,13 +80,24 @@ Section: ZDD -->
               <div class="brand-subtitle">Web Designer | Developer</div>
             </li>
           </ul>
+          <ul class="navbar-nav ">
+            <li class="social-item">
+              <a class="social-link" href="https://www.facebook.com/PatriciaEspinozaBueno"target="_blank"><i class="uil uil-facebook"></i></a>
+            </li>
+            <li class="social-item">
+              <a class="social-link " href="https://www.linkedin.com/in/patricia-espinoza-bueno/"target="_blank"><i class="uil uil-linkedin"></i></a>
+            </li>
+            <li class="social-item">
+              <a class="social-link " href="https://github.com/mpeb21"target="_blank"><i class="uil uil-github"></i>
+            </li>
+          </ul>
+          <!-- Menu Icon -->
+          <div class="menu-icon">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+          </div>
         </div>
-      </div>
-      <div class="menu-icon">
-        <div class="line1"></div>
-        <div class="line2"></div>
-        <div class="line3"></div>
-        <div class="line4"></div>
       </div>
     </nav>
 
@@ -237,7 +250,7 @@ Section: ZDD -->
 
                 <!-- Email -->
                 <label for="email">Email:</label>
-                <!-- email type wasnt used because form is validated using js so it wasn't needed -->
+              
                 <input
                   type="text"
                   name="email"
@@ -403,21 +416,18 @@ Section: ZDD -->
       </div>
     </div>
     <footer class="footer">
-      <h4>Patricia Espinoza Bueno</h4>
-      <p>
+      <div class="container"></div>
+        <h4>Patricia Espinoza Bueno</h4>
+        <p>
         This website has been created by myself as a part of my Final Assesment for WEB222 Course
         <br />
         <span>Copyright&copy; 2022 </span>
-      </p>
-
-      <div class="icons">
-        <a href="https://www.linkedin.com/in/patricia-espinoza-bueno/" target="_blank"
-          ><i class="uil uil-linkedin"></i
-        ></a>
-        <a href="https://github.com/mpeb21" target="_blank"><i class="uil uil-github"></i></a>
-        <a href="https://www.facebook.com/PatriciaEspinozaBueno" target="_blank"
-          ><i class="uil uil-facebook"></i
-        ></a>
+        </p>
+        <ul class="social-icons pt-5">
+        <li class="social-item"><a class="social-link text-light" href="https://www.facebook.com/PatriciaEspinozaBueno"target="_blank"><i class="uil uil-facebook"></i></a></li>
+        <li class="social-item"><a class="social-link text-light" href="https://www.linkedin.com/in/patricia-espinoza-bueno/"target="_blank"><i class="uil uil-linkedin"></i></a></li>
+        <li class="social-item"><a class="social-link text-light" href="https://github.com/mpeb21"target="_blank"><i class="uil uil-github"></i></li>
+          </ul>
       </div>
     </footer>
     <!-- style js -->
