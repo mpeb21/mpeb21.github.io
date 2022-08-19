@@ -107,22 +107,94 @@ Section: ZDD */
   padding: 15px 15px 0 15px;
 }
 
+/* Smaller Size */
 @media (max-width: 850px) {
   .menu-icon {
-    display: flex;
-    position: fixed;
-    float: left;
-    padding: 20px;
-    background-color: #0f0119;
+      display: flex;
+      position: fixed;
+      float: left;
+      padding: 20px;
+      background-color: #0F0119;
+  }
+
+  .nav-links {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 300px;
+      height: 100vh;
+      background: #0F0119;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 50px 20px;
+      z-index: 300;
   }
 
   .open-menu {
-    right: 0;
-    transition: 0.5s;
+      right: 0;
+      transition: 0.5s;
   }
 
   .nav-link {
-    display: block;
-    margin: 1rem 0;
+      display: block;
+      margin: 1rem 0;
+  }
+
+  .home-text h3 {
+      font-size: 1.3rem;
+  }
+
+  .home-text h2 {
+      font-size: 4rem;
+      line-height: 6rem;
+  }
+
+  .home-text p {
+      font-size: 0.75rem;
+  }
+
+  .about-content {
+      grid-template-columns: 1fr;
+  }
+
+  .heading {
+      font-size: 4rem;
+  }
+}
+
+/* Even Smaller Size */
+@media (max-width: 550px) {
+  .home-text h3 {
+      font-size: 1.2rem;
+  }
+
+  .home-text h2 {
+      font-size: 2.3rem;
+      line-height: 3.2rem;
+  }
+
+  .home-text p {
+      font-size: 0.5rem;
+  }
+
+  .about-content {
+      grid-template-columns: 1fr;
+  }
+
+  .heading {
+      font-size: 3.2rem;
+  }
+
+  .about-text p {
+      font-size: 0.5rem;
+  }
+
+  .about-details pre {
+      font-size: 0.9rem;
+  }
+  
+  .abt-span {
+      font-size: 1.5rem;
   }
 }
