@@ -5,111 +5,127 @@ Email: mespinoza-bueno@myseneca.ca
 Section: ZDD
 */
 
+// ==================== Code for responsive navbar ====================
+let menu = document.querySelector(".menu-icon");
+let navbar = document.querySelector(".nav-links");
 
 // Making the navbar responsive using a menu icon
-menu.addEventListener('click', function() {
-    navbar.classList.toggle('open-menu');
-    menu.classList.toggle('move');
+menu.addEventListener("click", function () {
+  navbar.classList.toggle("open-menu");
+  menu.classList.toggle("move");
 });
 
 // The navbar should collapse on small screens when scrolled
 window.onscroll = () => {
-    navbar.classList.remove('open-menu');
-    menu.classList.remove('move');
-}
+  navbar.classList.remove("open-menu");
+  menu.classList.remove("move");
+};
 
 // ==================== Form Validation Code ====================
 let messages = [];
-const form = document.getElementById('contact-form');
-const errorElement = document.getElementById('error');
+let address = [];
 
-form.addEventListener('submit', (e) => {
-    messages = [];
+const form = document.getElementById("contact-form");
+const errorElement = document.getElementById("error");
 
-    if (messages.length > 0) {
-        e.preventDefault();
-        errorElement.innerHTML = `
+form.addEventListener("submit", (e) => {
+  messages = [];
+
+  // Calling all the validation functions
+  validateName();
+  validateEmail();
+  validateAddress();
+  validateCity();
+  validatePostalCode();
+  validateMessage();
+
+  // Displaying the errors
+  if (messages.length > 0) {
+    e.preventDefault();
+    errorElement.innerHTML = `
         <h3>Incorrect Inputs Provided:</h3>
-        <pre>${messages.join('\r\n')}</pre>
+        <pre>${messages.join("\r\n")}</pre>
         `;
-    }
-})
+  }
+});
 
-form.addEventListener('reset', (e) => {
-    messages = [];
-    errorElement.innerHTML = '';
-})
+// eslint-disable-next-line no-unused-vars
+form.addEventListener("reset", (e) => {
+  messages = [];
+  errorElement.innerHTML = "";
+});
 
+// Validation for the name input
 function validateName() {
-    const inputName = document.getElementById('name');
-    if(nullChecker(inputName, 'Name')) {
-        areAlphabets(inputName, '- Name should be valid - All characters should be alphabetical');
-    }
+  const inputName = document.getElementById("name");
+  if (nullChecker(inputName, "Name")) {
+    areAlphabets(inputName, "- Name should be valid - All characters should be alphabetical");
+  }
 }
 
+// Validation for email input
 function validateEmail() {
-    const email = document.getElementById('email');
-    if (nullChecker(email, 'Email')) {
-        let validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-        if (!(email.value.match(validRegex))) {
-            messages.push("- Email Address is Invalid");
-        }
-    }    
+  const email = document.getElementById("email");
+  if (nullChecker(email, "Email")) {
+    let validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    if (!email.value.match(validRegex)) {
+      messages.push("- Email Address is Invalid");
+    }
+  }
 }
 
+// Validation for address
 function validateAddress() {
-    const address = document.getElementById('address');
-    if (nullChecker(address, 'Address')) {
-        if (address.value.length < 10) {
-            messages.push("- Address should be atleast 10 characters long");
-        }
+  const address = document.getElementById("address");
+  if (nullChecker(address, "Address")) {
+    if (address.value.length < 10) {
+      messages.push("- Address should be atleast 10 characters long");
     }
+  }
 }
 
+// Validation for city
 function validateCity() {
-    const city = document.getElementById('city');
-    if(nullChecker(city, 'City')) {
-        areAlphabets(city, '- City should be valid - All characters should be alphabetical');
-    }
+  const city = document.getElementById("city");
+  if (nullChecker(city, "City")) {
+    areAlphabets(city, "- City should be valid - All characters should be alphabetical");
+  }
 }
 
+// Validation for postal code
 function validatePostalCode() {
-    let postalCode = document.getElementById('pCode');
-    let validRegex = /^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$/;
-    if (!(postalCode.value.match(validRegex))) {
-        messages.push("- Invalid Postal Code");
-    }
+  let postalCode = document.getElementById("pCode");
+  let validRegex = /^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$/;
+  if (!postalCode.value.match(validRegex)) {
+    messages.push("- Invalid Postal Code");
+  }
 }
 
+// Validation for message
 function validateMessage() {
-    const message = document.getElementById('message');
-    if (nullChecker(message, 'Message')) {
-        if (address.value.length < 10) {
-            messages.push("- Message should be atleast 5 characters long");
-        }
+  const message = document.getElementById("message");
+  if (nullChecker(message, "Message")) {
+    if (address.value.length < 10) {
+      messages.push("- Message should be atleast 5 characters long");
     }
+  }
 }
 
-function payRateValidation() {
-    let payRateInput = document.getElementById('hiring-rate-input');
-    if (payRateInput.value <= 0) {
-        messages.push("- Enter an appropriate expected hourly pay rate")
-    }
-}
-
+// Ensures that the element is not empty
 function nullChecker(element, elementName) {
-    result = true;
-    if (element.value === '' || element.value == null) {
-        messages.push(`- ${elementName} is required`);
-        result = false;
-    }
+  let result = true;
+  if (element.value === "" || element.value === null) {
+    messages.push(`- ${elementName} is required`);
+    result = false;
+  }
 
-    return result;
+  return result;
 }
 
+// Ensures that all the characters in the input field are alphabets
 function areAlphabets(element, message) {
-    let validRegex = /^[A-Za-z\s]+$/;
-    if (!(element.value.match(validRegex))) {
-        messages.push(message);
-    }
+  let validRegex = /^[A-Za-z\s]+$/;
+  if (!element.value.match(validRegex)) {
+    messages.push(message);
+  }
 }
