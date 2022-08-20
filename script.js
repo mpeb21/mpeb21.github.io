@@ -7,7 +7,7 @@ Section: ZDD
 
 // ==================== Code for responsive navbar ====================
 let menu = document.querySelector(".menu-icon");
-let navbar = document.querySelector(".nav-links");
+let navbar = document.querySelector(".navbar-nav mr-auto");
 
 // Making the navbar responsive using a menu icon
 menu.addEventListener("click", function () {
