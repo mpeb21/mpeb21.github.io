@@ -117,7 +117,7 @@ Section: ZDD */
       background-color: #0F0119;
   }
 
-  .nav-links {
+  .navbar-nav mr-auto {
       position: fixed;
       top: 0;
       right: -100%;
@@ -136,7 +136,7 @@ Section: ZDD */
       transition: 0.5s;
   }
 
-  .nav-link {
+  .navbar-nav mr-auto {
       display: block;
       margin: 1rem 0;
   }
